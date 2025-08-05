@@ -1,0 +1,133 @@
+# 👁️ Unveil – Bypass Paywalls, Unlock Copying, and Clean the Web
+
+**Unveil** is a stealthy Chrome extension that gives you full control over restricted websites.  
+It removes overlays, re-enables copy/paste, toggles dark mode, and **bypasses soft paywalls like The New York Times** — all in one click.
+
+---
+
+## 🚀 Features
+
+- 📰 **New York Times Paywall Bypass**  
+- 🔓 **Enable Copy & Paste on Restricted Pages**  
+- 🌑 **Dark Mode for Any Website**   
+- ⚡ **One-Click “Toggle All” Unlock**  
+- 🎨 **Custom CSS Injection**
+
+---
+
+## 🔧 Installation
+
+1. Download or clone this repository:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/unveil-extension.git
+   ```
+2. Open Chrome and go to:  
+   `chrome://extensions`
+3. Enable **Developer mode** (toggle at the top right)
+4. Click **“Load Unpacked”** and select the `unveil-extension` folder
+5. The 👁️ **Unveil** icon should now appear in your toolbar
+
+---
+
+## 📖 How to Use
+
+### 📰 1. Bypass The New York Times Paywall
+
+Unveil removes soft overlays and blur filters that hide NYT content.
+
+1. Open any NYT article (e.g. https://www.nytimes.com/2024/07/28/technology/example.html)
+2. Click the **👁️ Unveil** extension icon
+3. Click the **“Find Blocked Elements”** button
+4. Done — overlay removed, full article revealed, scroll restored
+
+✅ Works on most NYT articles that use soft paywalls  
+❌ Will not work if content is fully removed server-side (hard paywalls)
+
+---
+
+### 🔓 2. Enable Copy & Paste
+
+1. Go to a site that blocks right-click or text selection
+2. Click the **Unveil** icon
+3. Click **“Enable Copy & Paste”**
+4. You can now highlight, copy, and paste like normal
+
+Perfect for:
+- Blogs with anti-copy scripts  
+- Online learning platforms  
+- Preview-only Google Docs  
+- Docs with disabled context menus
+
+---
+
+### 🌑 3. Toggle Dark Mode
+
+1. Open any bright/light website
+2. Click the **Unveil** icon
+3. Click **“Toggle Dark Mode”**
+4. Page gets converted to a clean, readable dark theme
+
+Great for:
+- Reading at night  
+- Reddit, Substack, Notion, docs, etc.
+
+---
+
+### ⚡ 4. Use “Toggle All”
+
+1. Click the **Unveil** icon
+2. Press **“Toggle All”**
+
+This will:
+- Enable copy/paste  
+- Reveal hidden elements  
+- Activate dark mode  
+- Show a popup summary of elements modified
+
+Great when you want full control fast.
+
+---
+
+### 🖌 5. Inject Custom CSS
+
+1. Paste your custom CSS into the textarea inside the popup
+2. Press **“Inject Custom CSS”**
+3. Your styles will apply instantly to the current page
+
+---
+
+## 🎯 Keyboard Shortcut
+
+- Windows: `Ctrl + Shift + U`  
+- Mac: `Cmd + Shift + U`
+
+→ Instantly runs Toggle All without clicking the popup.
+
+---
+
+## 🔐 Permissions
+
+Unveil uses the following permissions:
+
+- `activeTab`: Modify the current tab
+- `scripting`: Inject scripts/styles
+- `tabs`: Track the active tab for execution
+- `storage`: (future) Save per-site preferences
+
+> 🔒 Unveil runs 100% locally — no tracking, no data collection, no cloud calls.
+
+---
+
+## ⚠️ Disclaimer
+
+Unveil is for **educational and personal use only**.  
+Use it at your own risk. We do not condone violating publisher terms of service.
+
+---
+
+## 🧑‍💻 Author
+
+Made by Abdullah Shaikh  
+Built for readers, researchers, and anyone tired of soft web restrictions.
+
+> 🔓 Unveil the content. Read what matters. No more paywalls or blocks.
