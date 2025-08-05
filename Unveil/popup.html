@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unveil</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 300px;
+      max-height: 600px;
+      margin: 0;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #404040 #1a1a1a;
+    }
+    
+    /* Custom scrollbar for webkit browsers */
+    body::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    body::-webkit-scrollbar-track {
+      background: #1a1a1a;
+    }
+    
+    body::-webkit-scrollbar-thumb {
+      background: #404040;
+      border-radius: 3px;
+    }
+    
+    body::-webkit-scrollbar-thumb:hover {
+      background: #505050;
+    }
+    
+    h1 {
+      text-align: center;
+      margin: 0 0 28px 0;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+    
+    button {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #2a2a2a;
+      color: #e0e0e0;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+    
+    button:hover {
+      background-color: #3a3a3a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    
+    button:hover::before {
+      left: 100%;
+    }
+    
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    button.active {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    }
+    
+    button.active:hover {
+      background: linear-gradient(135deg, #059669, #047857);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+    
+    #toggleAll {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+    }
+    
+    #toggleAll:hover {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+    
+    textarea {
+      width: 100%;
+      height: 90px;
+      margin-bottom: 16px;
+      border: 1px solid #404040;
+      border-radius: 10px;
+      padding: 12px;
+      background-color: #252525;
+      color: #e0e0e0;
+      font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      resize: vertical;
+      transition: all 0.2s ease;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    textarea::placeholder {
+      color: #9ca3af;
+      font-style: italic;
+    }
+    
+    .css-section {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #404040;
+    }
+    
+    /* Improved focus states for accessibility */
+    button:focus-visible {
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+    }
+    
+    /* Animation for loading states */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    .loading {
+      animation: pulse 1.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    /* Subtle entrance animation */
+    button {
+      animation: slideIn 0.3s ease-out backwards;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Stagger the button animations */
+    button:nth-child(1) { animation-delay: 0ms; }
+    button:nth-child(2) { animation-delay: 50ms; }
+    button:nth-child(3) { animation-delay: 100ms; }
+    button:nth-child(4) { animation-delay: 150ms; }
+    button:nth-child(5) { animation-delay: 200ms; }
+    button:nth-child(6) { animation-delay: 250ms; }
+    button:nth-child(7) { animation-delay: 300ms; }
+    button:nth-child(8) { animation-delay: 350ms; }
+    button:nth-child(9) { animation-delay: 400ms; }
+  </style>
+</head>
+<body>
+  <h1>Unveil</h1>
+  
+  <button id="toggleAll">Toggle All</button>
+  
+  <button id="enableCopyPaste">Enable Copy & Paste</button>
+  
+  <button id="highlightProblems">Find Blocked Elements</button>
+  
+  <button id="toggleDarkMode">Toggle Dark Mode</button>
+  
+  <div class="css-section">
+    <button id="injectCustomCSS">Inject Custom CSS</button>
+    <textarea id="customCSSTextarea" placeholder="Enter your custom CSS here..."></textarea>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
